@@ -2,7 +2,7 @@
 // @name        Mark Watched YouTube Videos
 // @namespace   MarkWatchedYouTubeVideos
 // @description Add an indicator for watched videos on YouTube
-// @version     1.0.12
+// @version     1.0.13
 // @license     AGPL v3
 // @author      jcunews
 // @include     https://www.youtube.com/*
@@ -49,6 +49,7 @@
       if (link) {
         if (watched(getVideoId(link.href)) >= 0) {
           items[i].classList.add("watched");
+          items[i].classList.add("YT-HWV-WATCHED");
         } else items[i].classList.remove("watched");
       }
     }
@@ -161,6 +162,9 @@
 .playlist-videos-container>.playlist-videos-list>li.watched>a,
 .playlist-videos-container>.playlist-videos-list>li.watched .yt-ui-ellipsis
     { background-color: #030 !important }
+.watched .YT-HWV-WATCHED {
+    display: none !important;
+}
 `;
     document.head.appendChild(style);
   });
